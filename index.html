@@ -1,34 +1,27 @@
 <!DOCTYPE html>
 <html>
     <body id="root"></body>
-    <!-- React JS와 REACTDOM 설치 -->
-    <!-- React JS는 interactive, ReactDOM은 React element를 HTML로 바꿈. -->
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-    <script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
         const root = document.getElementById("root");
-
-        const h3 = React.createElement(
-            "h3", // argument, root에 들어갈 HTML 태그
-            {
-                id: "title", 
-                onMouseEnter: () => console.log("mouse enter")
-            }, // argument, props가 포함된 오브젝트. 프롭스 안에서 event listener를 등록할 수 있음!
-             "Hello I'm a span" // content
+        const Title = (
+            <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+                Hello I'm a span
+            </h3>
         );
-        
-        const btn = React.createElement(
-        "button",
-        {
-            onClick: () => console.log("im clicked"), //안앤 유효 이벤트가 있어야 함.
-            style: {
-                backgroundColor: "tomato"
-            }
-        }, 
-        "Click me"
+        const Button = (
+            <button
+                style={{
+                    backgroundColor: "toamto",
+                }}
+                onClick={() => console.log("i'm clicked")}
+            >
+                Click me
+            </button> 
         );
-        const container = React.createElement("div", null, [h3,btn]); // 순서대로 elements, property, content
-        
-        ReactDOM.render(container, root); // react elemets을 root div안에서 보여주라.
+        const container = React.createElement("div", null, [Title, Button]);
+        ReactDOM.render(container, root);
     </script>
 </html>
