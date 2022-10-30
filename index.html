@@ -7,10 +7,12 @@
     <script type="text/babel">
         const root = document.getElementById("root");
         function App(){
-            let [counter, setCounter] = React.useState(0);
-            const onClick = () => {
+            let [counter, setCounter] = React.useState(0); //데이터가 바뀔 때마다 컴포넌트를 rerendering하고 UI를 refresh
+            const onClick = () => { //setCounter로 state를 바꿀 때, 컴포넌트 자체가 새로운 값과 함께 재생성.
                 setCounter(counter + 1);
             }
+            console.log("rendered");
+            console.log(counter);
             return (
                 <div> 
                     <h3>Total clicks: {counter}</h3>
