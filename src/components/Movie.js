@@ -1,10 +1,14 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Movie({ coverImg, title, summary, genres }) {
   return (
     <div>
       <img src={coverImg} alt={title} />
-      <h2>{title}</h2>
+      <h2>
+        <Link to="./movie">{title}</Link>
+        {/* 새로고침 없이 이동 */}
+      </h2>
       <p>{summary}</p>
       <ul>
         {genres.map((g) => (
