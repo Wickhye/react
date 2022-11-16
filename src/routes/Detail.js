@@ -15,7 +15,6 @@ function Detail() {
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
     ).json();
     setMovie(json.data.movie);
-    console.log(json.data.movie);
     setLoading(false);
   };
 
@@ -28,6 +27,11 @@ function Detail() {
           <img src={movie.large_cover_image} />
           <h2>{movie.title_long}</h2>
           <p>{movie.date_uploaded}</p>
+          <ul>
+            {movie.genres.map((g) => (
+              <li key={g}>{g}</li>
+            ))}
+          </ul>
           <p>Like count: {movie.like_count}</p>
           <p>Runtime: {movie.runtime}</p>
         </div>
