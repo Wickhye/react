@@ -4,7 +4,7 @@ import Detail from "./routes/Detail";
 // gh_pages 설치
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path="/hello">
           <h1>Hello</h1>
